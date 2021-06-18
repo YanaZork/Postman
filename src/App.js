@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
+import React from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useHistory
+  Link
 } from "react-router-dom";
-import InputMask from 'react-input-mask';
-import { render } from '@testing-library/react';
 import Main from './pages/Main';
 import Create from './pages/Create';
-import EditItem from './pages/EditItem';
-
-
+import Button from '@material-ui/core/Button';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 export default function App() {
   return (
     <Router >
       <div>
         <nav>
-          <ul>
-            <li>
-              <Link to="/" className='App-link'>Main</Link>
-            </li>
-            <li>
-              <Link to="/create" className='App-link'>Create</Link>
-            </li>
-          </ul>
+          <AppBar position="static">
+            <Toolbar>
+              <Link to="/" className='App-link'>
+                <Button color="inherit">
+                  Main
+                </Button>
+              </Link>
+              <Link to="/create" className='App-link'>
+                <Button color="inherit">
+                  Create
+                </Button>
+              </Link>
+            </Toolbar>
+          </AppBar>
         </nav>
         <Switch>
           <Route path="/create">
@@ -42,3 +44,25 @@ export default function App() {
     </Router>
   );
 }
+/*
+<Link
+            to="/"
+            className='App-link'
+          >
+            <Button
+              aria-controls="customized-menu"
+              aria-haspopup="true"
+              variant="contained"
+              color="primary"
+            >
+              Main
+            </Button>
+          </Link>
+          <Link to="/create" className='App-link'>
+            <Button
+              aria-controls="customized-menu"
+              aria-haspopup="true"
+              variant="contained"
+              color="primary"
+            >Create</Button></Link>
+*/

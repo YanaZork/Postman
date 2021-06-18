@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useHistory
-} from "react-router-dom";
-import Create from './Create';
 import EditItem from './EditItem';
+import 'fontsource-roboto';
+import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
+
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
 export default function Main() {
     const [values, setValues] = useState([]);
@@ -51,19 +54,53 @@ export default function Main() {
         });
     }
     */
-
     const getValues = (values.length) ? values.map((value, index) => (
-        <div key={value._id}>
-            {index + 1}.
-            Имя: <span> {value.empName} </span>
-            Почта: <span>{value.empEmail} </span>
-            Телефон: <span>{value.empMobile} </span>
+        <div key={value._id} >
+        <Card variant="outlined">
+        <CardContent><ListItem>
+            <Avatar src="/broken-image.jpg"></Avatar>
+            
+                <ListItemText primary={value.empName} />
+            </ListItem><Divider />
+            <ListItem>
+                <ListItemText primary={value.empEmail} />
+            </ListItem><Divider />
+            <ListItem>
+                <ListItemText primary={value.empMobile} />
+            </ListItem>
+            
+            
+            <Button
+                onClick={
+                    EditItem.bind(this, value)}
+                variant="outlined"
+                size="small"
+                color="primary"
+            >
+                Edit
+            </Button>
 
-            <button onClick={EditItem.bind(this, value)}>Edit</button>
-            <button onClick={DeleteItem.bind(this, value._id)}>Delete</button>
+            <Button
+                onClick={
+                    DeleteItem.bind(this, value._id)}
+                variant="outlined"
+                size="small"
+                color="primary"
+            >
+                Delete
+            </Button>
+            </CardContent></Card>
+            <br /><br />
         </div>
     )) : <div>Нет данных</div>
 
     return (<div>{getValues}</div>);
 
 }
+
+/*
+Имя: <span> {value.empName} </span><br />
+            Почта: <span>{value.empEmail} </span><br />
+            Телефон: <span>{value.empMobile} </span><br />
+
+*/

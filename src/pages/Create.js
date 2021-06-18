@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import InputMask from 'react-input-mask';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
-
+import 'fontsource-roboto';
 
 
 
@@ -31,7 +31,7 @@ export default function Create() {
                 }}
             >
                 <Form>
-                
+
                     <Field name="empName" type="text" placeholder="Имя" /><br />
                     <Field name="empEmail" type="email" placeholder="Почта" /><br />
                     <Field name="empMobile" render={({ field }) => { return <InputMask mask="+7(999)999-99-99" placeholder="Телефон" {...field} /> }} /><br />
