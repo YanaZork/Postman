@@ -12,6 +12,7 @@ import InputMask from 'react-input-mask';
 import { render } from '@testing-library/react';
 import Main from './pages/Main';
 import Create from './pages/Create';
+import EditItem from './pages/EditItem';
 
 export default function App() {
   return (
@@ -34,25 +35,11 @@ export default function App() {
           <Route path="/">
             <Main />
           </Route>
-          <Route path="/edit/:id">
-            <Editor />
+          <Route path="/edit">
+            <EditItem />
           </Route>
         </Switch>
       </div>
     </Router>
   );
 }
-
-function Editor() {
-  return (
-    <h1>Hi</h1>
-  );
-}
-
-/*
-<div>
-      {<Link to="/edit"><button onClick={Edit}>Edit</button></Link>}
-      <button>Delete</button>
-    </div>
-*/
-
