@@ -7,7 +7,7 @@ import {
     useHistory
 } from "react-router-dom";
 import Create from './Create';
-
+import EditItem from './EditItem';
 
 export default function Main() {
     const [values, setValues] = useState([]);
@@ -29,9 +29,10 @@ export default function Main() {
             Donload();
         });
     }
-
+    /*
     let history = useHistory();
     function Edit(item) {
+        
         console.log(item);
         history.push({
             pathname: "/edit/" + item._id,
@@ -48,8 +49,8 @@ export default function Main() {
             
             Donload();
         });
-        <Router><Switch><Route><Create /></Route></Switch></Router>
     }
+    */
 
     const getValues = (values.length) ? values.map((value, index) => (
         <div key={value._id}>
@@ -58,7 +59,7 @@ export default function Main() {
             Почта: <span>{value.empEmail} </span>
             Телефон: <span>{value.empMobile} </span>
 
-            <button onClick={Edit.bind(this, value)}>Edit</button>
+            <button onClick={EditItem.bind(this, value)}>Edit</button>
             <button onClick={DeleteItem.bind(this, value._id)}>Delete</button>
         </div>
     )) : <div>Нет данных</div>

@@ -14,17 +14,19 @@ import Main from './pages/Main';
 import Create from './pages/Create';
 import EditItem from './pages/EditItem';
 
+
+
 export default function App() {
   return (
-    <Router>
+    <Router >
       <div>
         <nav>
           <ul>
             <li>
-              <Link to="/">Main</Link>
+              <Link to="/" className='App-link'>Main</Link>
             </li>
             <li>
-              <Link to="/create">Create</Link>
+              <Link to="/create" className='App-link'>Create</Link>
             </li>
           </ul>
         </nav>
@@ -34,9 +36,6 @@ export default function App() {
           </Route>
           <Route path="/">
             <Main />
-          </Route>
-          <Route path="/edit">
-            <EditItem />
           </Route>
         </Switch>
       </div>
