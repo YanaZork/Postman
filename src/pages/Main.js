@@ -35,9 +35,9 @@ export default function Main() {
     
     const getValues = (values.length)? values.map ((value, index) => (
         <div key={value._id}>
-            <span>{value.empName}</span>
-            <span>{value.empEmail}</span>
-            <span>{value.empMobile}</span>
+            Имя: <span> {value.empName} </span>
+            Почта: <span>{value.empEmail} </span>
+            Телефон: <span>{value.empMobile} </span>
             <button onClick={DeleteItem.bind(this, value._id)}>Delete</button>
         </div>
     )): <div>Нет данных</div>
